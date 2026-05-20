@@ -10,23 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1a2e;
-    --paper: #f5f0e8;
-    --cream: #ede8d8;
-    --accent: #b5451b;
-    --accent2: #2d5a8e;
-    --muted: #7a7060;
-    --border: #c8bea8;
-    --success: #2d6a4f;
-    --success-bg: #eaf3de;
-    --error-bg: #fce8e8;
-    --error-text: #8a1a1a;
-    --info-bg: #e8f0fe;
-    --info-text: #1a3a8a;
+    --ink: #1a1a2e; --paper: #f5f0e8; --cream: #ede8d8;
+    --accent: #b5451b; --accent2: #2d5a8e; --muted: #7a7060;
+    --border: #c8bea8; --success: #2d6a4f; --success-bg: #eaf3de;
+    --error-bg: #fce8e8; --error-text: #8a1a1a;
+    --info-bg: #e8f0fe; --info-text: #1a3a8a;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif; min-height: 100vh; line-height: 1.6; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh; line-height: 1.6; }
   .masthead { background: var(--ink); color: var(--paper); padding: 2.5rem 1.5rem 2rem; border-bottom: 5px solid var(--accent); position: relative; overflow: hidden; }
   .masthead::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 80px); pointer-events: none; }
   .masthead-inner { max-width: 740px; margin: 0 auto; position: relative; }
@@ -36,37 +28,30 @@
   .main { max-width: 740px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
   .step { background: #fff; border: 1px solid var(--border); border-radius: 3px; margin-bottom: 1.75rem; overflow: hidden; box-shadow: 3px 4px 0 var(--cream); animation: fadeUp .4s ease both; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-  .step:nth-child(1) { animation-delay: .05s; }
-  .step:nth-child(2) { animation-delay: .12s; }
-  .step:nth-child(3) { animation-delay: .19s; }
-  .step:nth-child(4) { animation-delay: .26s; }
+  .step:nth-child(1){animation-delay:.05s} .step:nth-child(2){animation-delay:.12s} .step:nth-child(3){animation-delay:.19s} .step:nth-child(4){animation-delay:.26s}
   .step-header { display: flex; align-items: center; gap: 14px; padding: 1rem 1.25rem; background: var(--cream); border-bottom: 1px solid var(--border); user-select: none; }
   .step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--paper); font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .2s; }
   .step-num.done { background: var(--success); }
   .step-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); }
   .step-body { padding: 1.5rem 1.25rem; }
-  .field { margin-bottom: 16px; }
-  .field:last-child { margin-bottom: 0; }
+  .field { margin-bottom: 16px; } .field:last-child { margin-bottom: 0; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
   label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
-  input, select, textarea { width: 100%; font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: var(--ink); background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 9px 12px; outline: none; transition: border-color .15s, background .15s, box-shadow .15s; -webkit-appearance: none; }
-  input:focus, select:focus, textarea:focus { border-color: var(--accent2); background: #fff; box-shadow: 0 0 0 3px rgba(45,90,142,.12); }
+  input, select { width: 100%; font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: var(--ink); background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 9px 12px; outline: none; transition: border-color .15s, background .15s, box-shadow .15s; -webkit-appearance: none; }
+  input:focus, select:focus { border-color: var(--accent2); background: #fff; box-shadow: 0 0 0 3px rgba(45,90,142,.12); }
   .helper { font-size: 12px; color: var(--muted); margin-top: 5px; font-style: italic; line-height: 1.45; }
   .section-note { font-size: 14px; color: var(--muted); font-style: italic; margin-bottom: 1.1rem; line-height: 1.55; }
   .btn { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; font-weight: 600; letter-spacing: .04em; padding: 10px 22px; border: none; border-radius: 2px; cursor: pointer; transition: background .15s, color .15s, transform .1s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; line-height: 1.3; }
   .btn:active { transform: translateY(1px); }
-  .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: #962f0d; }
-  .btn-dark { background: var(--ink); color: var(--paper); }
-  .btn-dark:hover { background: #2a2a40; }
-  .btn-outline { background: transparent; color: var(--accent2); border: 1.5px solid var(--accent2); }
-  .btn-outline:hover { background: var(--accent2); color: #fff; }
+  .btn-primary { background: var(--accent); color: #fff; } .btn-primary:hover { background: #962f0d; }
+  .btn-dark { background: var(--ink); color: var(--paper); } .btn-dark:hover { background: #2a2a40; }
+  .btn-outline { background: transparent; color: var(--accent2); border: 1.5px solid var(--accent2); } .btn-outline:hover { background: var(--accent2); color: #fff; }
   .action-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 1rem; }
   .status-msg { font-size: 13px; padding: 10px 14px; border-radius: 2px; margin-bottom: 14px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
-  .status-error   { background: var(--error-bg); color: var(--error-text); border: 1px solid #f5b8b8; }
-  .status-info    { background: var(--info-bg);  color: var(--info-text);  border: 1px solid #b8c8f5; }
-  .status-success { background: var(--success-bg); color: #1a5a2e; border: 1px solid #b8dda8; }
+  .status-error   { background: var(--error-bg);   color: var(--error-text); border: 1px solid #f5b8b8; }
+  .status-info    { background: var(--info-bg);    color: var(--info-text);  border: 1px solid #b8c8f5; }
+  .status-success { background: var(--success-bg); color: #1a5a2e;           border: 1px solid #b8dda8; }
   .rep-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
   .rep-card { border: 1.5px solid var(--border); border-radius: 3px; padding: 1rem 1.1rem; background: var(--paper); display: flex; align-items: center; gap: 14px; cursor: pointer; transition: border-color .15s, background .15s, box-shadow .15s; }
   .rep-card:hover  { border-color: var(--accent2); background: #eef3f9; }
@@ -75,14 +60,23 @@
   .rep-info { flex: 1; min-width: 0; }
   .rep-name { font-weight: 600; font-size: 15px; margin-bottom: 3px; }
   .rep-meta { font-size: 12px; color: var(--muted); line-height: 1.4; }
-  .party-R { color: var(--accent); font-weight: 600; }
-  .party-D { color: var(--accent2); font-weight: 600; }
+  .party-R { color: var(--accent); font-weight: 600; } .party-D { color: var(--accent2); font-weight: 600; } .party-I { color: #5a5a2e; font-weight: 600; }
   .check-ring { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; color: transparent; transition: all .15s; }
   .rep-card.selected .check-ring { background: var(--accent2); border-color: var(--accent2); color: #fff; }
   .letter-preview { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 2px 2px 0; padding: 1.5rem; font-size: 13.5px; line-height: 1.75; white-space: pre-wrap; font-family: 'Source Serif 4', Georgia, serif; color: var(--ink); max-height: 340px; overflow-y: auto; margin-bottom: 4px; }
   hr { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
   .dir-links { display: flex; flex-direction: column; gap: 10px; }
   .footer { text-align: center; font-size: 12px; color: var(--muted); padding: 2rem 1.5rem; border-top: 1px solid var(--border); font-style: italic; line-height: 1.6; }
+  /* Search box */
+  .search-wrap { position: relative; margin-bottom: 12px; }
+  .search-wrap input { padding-left: 34px; }
+  .search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
+  .search-results { border: 1px solid var(--border); border-radius: 2px; background: #fff; max-height: 220px; overflow-y: auto; display: none; }
+  .search-result-item { padding: 9px 14px; cursor: pointer; font-size: 14px; border-bottom: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .search-result-item:last-child { border-bottom: none; }
+  .search-result-item:hover { background: #eef3f9; }
+  .sri-name { font-weight: 500; }
+  .sri-meta { font-size: 11px; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -97,6 +91,7 @@
 
 <main class="main">
 
+  <!-- STEP 1 -->
   <div class="step">
     <div class="step-header">
       <div class="step-num" id="num1">1</div>
@@ -140,6 +135,7 @@
     </div>
   </div>
 
+  <!-- STEP 2 -->
   <div class="step">
     <div class="step-header">
       <div class="step-num" id="num2">2</div>
@@ -148,9 +144,22 @@
     <div class="step-body">
       <div id="rep-status"></div>
       <div class="rep-list" id="rep-list"></div>
+
+      <!-- Name search fallback -->
+      <div id="search-section" style="display:none">
+        <hr>
+        <p class="section-note">Search for your legislator by name or city:</p>
+        <div class="search-wrap">
+          <span class="search-icon">&#9906;</span>
+          <input type="text" id="name-search" placeholder="e.g. Starkville, or Rob Roberson" oninput="onSearchInput()">
+        </div>
+        <div class="search-results" id="search-results"></div>
+      </div>
+
+      <!-- Manual entry -->
       <div id="manual-section" style="display:none">
         <hr>
-        <p class="section-note">Enter your legislator's info manually (find it via the directory links in Step 4):</p>
+        <p class="section-note">Or enter your legislator's details manually (find them via the directory links in Step 4):</p>
         <div class="field-row">
           <div class="field">
             <label for="manual-name">Legislator name</label>
@@ -172,12 +181,15 @@
           <button class="btn btn-outline" onclick="useManual()">Use this legislator &#8594;</button>
         </div>
       </div>
-      <div style="margin-top:1rem">
-        <button class="btn btn-outline" id="manual-toggle-btn" onclick="toggleManual()">Enter legislator manually instead</button>
+
+      <div style="margin-top:1rem; display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn btn-outline" id="search-toggle-btn" onclick="toggleSearch()">Search by name instead</button>
+        <button class="btn btn-outline" id="manual-toggle-btn" onclick="toggleManual()">Enter manually instead</button>
       </div>
     </div>
   </div>
 
+  <!-- STEP 3 -->
   <div class="step">
     <div class="step-header">
       <div class="step-num" id="num3">3</div>
@@ -191,24 +203,24 @@
         <button class="btn btn-outline" onclick="copyLetter()">&#8696; Copy letter text</button>
       </div>
       <p class="helper" style="margin-top:.75rem">
-        "Open in email client" launches your default mail app (Gmail, Outlook, Apple Mail, etc.) with the letter
-        pre-addressed and pre-filled. If your legislator's email wasn't found automatically, find it in Step 4 and paste it into the To: field.
+        "Open in email client" launches your default mail app with the letter pre-addressed and pre-filled.
+        If your legislator's email wasn't found automatically, find it in Step 4 and paste it into the To: field.
       </p>
       <div id="send-status" style="margin-top:10px"></div>
     </div>
   </div>
 
+  <!-- STEP 4 -->
   <div class="step">
     <div class="step-header">
       <div class="step-num">4</div>
       <div class="step-title">Find your legislator's contact info</div>
     </div>
     <div class="step-body">
-      <p class="section-note">Mississippi doesn't publish all legislator emails in a central machine-readable database. Use these official directories if needed:</p>
+      <p class="section-note">Use these official directories to find email addresses and phone numbers for any Mississippi legislator:</p>
       <div class="dir-links">
         <a href="https://www.legislature.ms.gov/legislators/house-district-map/" target="_blank" rel="noopener" class="btn btn-dark">&#8594; MS House member directory</a>
         <a href="https://www.legislature.ms.gov/legislators/senate-district-map/" target="_blank" rel="noopener" class="btn btn-dark">&#8594; MS Senate member directory</a>
-        <a href="https://www.whoismylegislator.com/?state=MS" target="_blank" rel="noopener" class="btn btn-outline">&#8594; WhoIsMyLegislator.com</a>
       </div>
     </div>
   </div>
@@ -218,55 +230,233 @@
 <footer class="footer">
   <p>
     This tool uses the <a href="https://geocoding.geo.census.gov" target="_blank" rel="noopener" style="color:var(--accent2)">US Census Geocoding API</a>
-    and <a href="https://openstates.org/" target="_blank" rel="noopener" style="color:var(--accent2)">Open States</a> to look up representatives by address.<br>
+    and <a href="https://openstates.org/" target="_blank" rel="noopener" style="color:var(--accent2)">Open States</a> to look up your district,
+    with a built-in database of all 174 current Mississippi legislators as a fallback.<br>
     No data you enter is stored, logged, or shared. All letter composition happens in your browser.
   </p>
 </footer>
 
 <script>
-var LETTER_SUBJECT = "Making the case for a full-time Mississippi Legislature";
+// ════════════════════════════════════════════════════════════════════════════
+// HARDCODED MS LEGISLATOR DATABASE — current as of May 2026
+// Sources: Wikipedia MS House / MS Senate pages (updated post-2025 special elections)
+// Format: [district, name, party, chamber, residence, email]
+// email = '' means not publicly listed in a machine-readable way
+// chamber: 'H' = House, 'S' = Senate
+// ════════════════════════════════════════════════════════════════════════════
+var MS_MEMBERS = [
+  // ── HOUSE ────────────────────────────────────────────────────────────────
+  [1,'Lester Carpenter','R','H','Burnsville',''],
+  [2,'Brad Mattox','R','H','Corinth',''],
+  [3,'William Tracy Arnold','R','H','Booneville',''],
+  [4,'Jody Steverson','R','H','Ripley',''],
+  [5,'John Faulkner','D','H','Holly Springs',''],
+  [6,'Justin Keen','R','H','Byhalia',''],
+  [7,'Kimberly Remak','R','H','Olive Branch',''],
+  [8,'Trey Lamar','R','H','Senatobia',''],
+  [9,'Cedric Burnett','D','H','Tunica',''],
+  [10,'Josh Hawkins','R','H','Batesville',''],
+  [11,'Lataisha Jackson','D','H','Como',''],
+  [12,'Clay Deweese','R','H','Oxford',''],
+  [13,'Steve Massengill','R','H','Hickory Flat',''],
+  [14,'Sam Creekmore IV','R','H','New Albany',''],
+  [15,'Beth Luther Waldo','R','H','Pontotoc',''],
+  [16,'Rickey W. Thompson','D','H','Shannon',''],
+  [17,'Shane Aguirre','R','H','Tupelo',''],
+  [18,'Jerry Turner','R','H','Baldwyn',''],
+  [19,'Randy Boyd','R','H','Mantachie',''],
+  [20,'Rodney Hall','R','H','Southaven',''],
+  [21,'Donnie Bell','R','H','Fulton',''],
+  [22,'Justin Crosby','D','H','Aberdeen',''],
+  [23,'Perry Van Bailey','R','H','Calhoun City',''],
+  [24,'Jeff Hale','R','H','Nesbit',''],
+  [25,'Dan Eubanks','R','H','Walls',''],
+  [26,'Otha Williams','D','H','Lyon',''],
+  [27,'Kenji Holloway','D','H','Carthage',''],
+  [28,'Doc Harris','R','H','Hernando',''],
+  [29,'Robert L. Sanders','D','H','Cleveland',''],
+  [30,'Tracey Rosebud','D','H','Tutwiler',''],
+  [31,'Otis Anthony','D','H','Indianola',''],
+  [32,'Solomon Osborne','D','H','Greenwood',''],
+  [33,'Jim Estrada','R','H','Saucier',''],
+  [34,'Kevin Horan','R','H','Grenada',''],
+  [35,'Joey Hood','R','H','Ackerman',''],
+  [36,'Karl Gibbs','D','H','West Point',''],
+  [37,'Andy Boyd','R','H','Columbus',''],
+  [38,'Cheikh Taylor','D','H','Starkville',''],
+  [39,'Dana McLean','R','H','Columbus',''],
+  [40,'Hester Jackson-McCray','D','H','Horn Lake',''],
+  [41,'Kabir Karriem','D','H','Columbus',''],
+  [42,'Carl Mickens','D','H','Brooksville',''],
+  [43,'Rob Roberson','R','H','Starkville',''],
+  [44,'C. Scott Bounds','R','H','Philadelphia',''],
+  [45,'Keith Jackson','D','H','Preston',''],
+  [46,'Karl Oliver','R','H','Winona',''],
+  [47,'Bryant Clark','D','H','Pickens',''],
+  [48,'Jason White','R','H','West',''],
+  [49,'Willie Bailey','D','H','Greenville',''],
+  [50,'John Hines','D','H','Greenville',''],
+  [51,'Timaka James-Jones','D','H','Belzoni',''],
+  [52,'Bill Kinkade','R','H','Byhalia',''],
+  [53,'Vince Mangold','R','H','Brookhaven',''],
+  [54,'Kevin Ford','R','H','Vicksburg',''],
+  [55,'Oscar Denton','D','H','Vicksburg',''],
+  [56,'Clay Mansell','R','H','Clinton',''],
+  [57,'Lawrence Blackmon','D','H','Canton',''],
+  [58,'Jonathan McMillan','R','H','Madison',''],
+  [59,'Brent Powell','R','H','Brandon',''],
+  [60,'Fred Shanks','R','H','Brandon',''],
+  [61,'Gene Newman','R','H','Pearl',''],
+  [62,'Lance Varner','R','H','Florence',''],
+  [63,'Stephanie Foster','D','H','Jackson',''],
+  [64,'Shanda Yates','I','H','Jackson',''],
+  [65,'Chris Bell','D','H','Jackson',''],
+  [66,'Fabian Nelson','D','H','Byram',''],
+  [67,'Earle S. Banks','D','H','Jackson',''],
+  [68,'Zakiya Summers','D','H','Jackson',''],
+  [69,'Tamarra Butler-Washington','D','H','Jackson',''],
+  [70,'Bo Brown','D','H','Jackson',''],
+  [71,'Ronnie Crudup Jr.','D','H','Jackson',''],
+  [72,'Justis Gibbs','D','H','Jackson',''],
+  [73,'Jill Ford','R','H','Madison',''],
+  [74,'Lee Yancey','R','H','Brandon',''],
+  [75,'Celeste Hurst','R','H','Sandhill',''],
+  [76,'Gregory Holloway Sr.','D','H','Hazlehurst',''],
+  [77,'Price Wallace','R','H','Mendenhall',''],
+  [78,'Randy Rushing','R','H','Decatur',''],
+  [79,'Mark Tullos','R','H','Raleigh',''],
+  [80,'Omeria Scott','D','H','Laurel',''],
+  [81,'Stephen Horne','R','H','Meridian',''],
+  [82,'Gregory Elliott','D','H','Meridian',''],
+  [83,'Billy Adam Calvert','R','H','Meridian',''],
+  [84,'Troy Smith','R','H','Enterprise',''],
+  [85,'Jeffery Harness','D','H','Fayette',''],
+  [86,'Shane Barnett','R','H','Waynesboro',''],
+  [87,'Joseph Tubb','R','H','Purvis',''],
+  [88,'Charles Blackwell','R','H','Ellisville',''],
+  [89,'Donnie Scoggin','R','H','Ellisville',''],
+  [90,'Noah Sanford','R','H','Collins',''],
+  [91,'Bob Evans','D','H','Monticello',''],
+  [92,'Becky Currie','R','H','Brookhaven',''],
+  [93,'Timmy Ladner','R','H','Poplarville',''],
+  [94,'Robert Johnson III','D','H','Natchez',''],
+  [95,'Jay McKnight','R','H','Gulfport',''],
+  [96,'Angela Cockerham','I','H','Magnolia',''],
+  [97,'Sam Mims V','R','H','McComb',''],
+  [98,'Daryl Porter Jr.','D','H','Summit',''],
+  [99,'Bill Pigott','R','H','Tylertown',''],
+  [100,'Ken Morgan','R','H','Morgantown',''],
+  [101,'Kent McCarty','R','H','Hattiesburg',''],
+  [102,'Missy McGee','R','H','Hattiesburg',''],
+  [103,'Percy Watson','D','H','Hattiesburg',''],
+  [104,'Larry Byrd','R','H','Petal',''],
+  [105,'Elliot Burch','R','H','Lucedale',''],
+  [106,'Jansen Owen','R','H','Poplarville',''],
+  [107,'Steve Lott','R','H','Lucedale',''],
+  [108,'Stacey Hobgood-Wilkes','R','H','Picayune',''],
+  [109,'Manly Barton','R','H','Moss Point',''],
+  [110,'Jeramey Anderson','D','H','Escatawpa',''],
+  [111,'Jimmy Fondren','R','H','Pascagoula',''],
+  [112,'John Read','R','H','Gautier',''],
+  [113,'Henry Zuber III','R','H','Ocean Springs',''],
+  [114,'Jeffrey S. Guice','R','H','Ocean Springs',''],
+  [115,'Zachary Grady','R','H','D\'Iberville',''],
+  [116,'Casey Eure','R','H','Saucier',''],
+  [117,'Kevin Felsher','R','H','Biloxi',''],
+  [118,'Greg Haney','R','H','Gulfport',''],
+  [119,'Jeffrey Hulum III','D','H','Gulfport',''],
+  [120,'Richard Bennett','R','H','Long Beach',''],
+  [121,'Carolyn Crawford','R','H','Pass Christian',''],
+  [122,'Brent Anderson','R','H','Bay St. Louis',''],
+  // ── SENATE ───────────────────────────────────────────────────────────────
+  [1,'Michael McLendon','R','S','DeSoto/Tate',''],
+  [2,'Theresa Gillespie Isom','D','S','DeSoto/Tunica',''],
+  [3,'Kathy Chism','R','S','Benton/Marshall/Pontotoc/Prentiss/Union',''],
+  [4,'Rita Potts Parks','R','S','Alcorn/Tippah',''],
+  [5,'Daniel Sparks','R','S','Itawamba/Prentiss/Tishomingo',''],
+  [6,'Chad McMahan','R','S','Lee',''],
+  [7,'Hob Bryan','D','S','Itawamba/Lee/Monroe',''],
+  [8,'Benjamin Suber','R','S','Calhoun/Chickasaw/Lafayette/Pontotoc/Yalobusha',''],
+  [9,'Nicole Akins Boyd','R','S','Lafayette/Panola',''],
+  [10,'Neil Whaley','R','S','Lafayette/Marshall/Tate/Union',''],
+  [11,'Reginald Jackson','D','S','Coahoma/DeSoto/Quitman/Tate/Tunica',''],
+  [12,'Derrick Simmons','D','S','Bolivar/Coahoma/Washington',''],
+  [13,'Sarita Simmons','D','S','Bolivar/Sunflower/Tallahatchie',''],
+  [14,'Lydia Chassaniol','R','S','Attala/Carroll/Grenada/Leflore/Montgomery',''],
+  [15,'Bart Williams','R','S','Choctaw/Montgomery/Oktibbeha/Webster',''],
+  [16,'Angela Turner-Ford','D','S','Clay/Lowndes/Noxubee/Oktibbeha',''],
+  [17,'Charles Younger','R','S','Lowndes/Monroe/Oktibbeha',''],
+  [18,'Lane Taylor','R','S','Leake/Neshoba/Winston',''],
+  [19,'Kevin Blackwell','R','S','DeSoto',''],
+  [20,'Josh Harkins','R','S','Rankin',''],
+  [21,'Bradford Blackmon','D','S','Attala/Holmes/Leake/Madison',''],
+  [22,'Joseph C. Thomas','D','S','Humphreys/Madison/Sharkey/Yazoo',''],
+  [23,'Briggs Hopson','R','S','Issaquena/Madison/Warren/Yazoo',''],
+  [24,'Justin Pope','D','S','Leflore/Panola/Tallahatchie',''],
+  [25,'J. Walter Michel','R','S','Hinds/Madison',''],
+  [26,'Kamesha Mumford','D','S','Hinds/Madison',''],
+  [27,'Hillman Terome Frazier','D','S','Hinds',''],
+  [28,'Sollie Norwood','D','S','Hinds',''],
+  [29,'David Blount','D','S','Hinds',''],
+  [30,'Dean Kirby','R','S','Rankin',''],
+  [31,'Tyler McCaughn','R','S','Lauderdale/Newton/Rankin/Scott',''],
+  [32,'Rod Hickman','D','S','Kemper/Lauderdale/Noxubee/Winston',''],
+  [33,'Jeff Tate','R','S','Clarke/Lauderdale',''],
+  [34,'Juan Barnett','D','S','Covington/Jasper/Jones',''],
+  [35,'Andy Berry','R','S','Copiah/Jefferson Davis/Lawrence/Simpson',''],
+  [36,'Brian Rhodes','R','S','Rankin/Smith',''],
+  [37,'Albert Butler','D','S','Adams/Claiborne/Copiah/Franklin/Hinds/Jefferson',''],
+  [38,'Gary Brumfield','D','S','Adams/Amite/Pike/Walthall/Wilkinson',''],
+  [39,'Jason Barrett','R','S','Amite/Franklin/Lawrence/Lincoln/Pike',''],
+  [40,'Angela Burks Hill','R','S','Pearl River/Stone',''],
+  [41,'Joey Fillingane','R','S','Covington/Lamar/Marion/Walthall',''],
+  [42,'Don Hartness','R','S','Forrest/Jones',''],
+  [43,'Dennis DeBar','R','S','George/Greene/Wayne',''],
+  [44,'Chris Johnson','R','S','Forrest/Lamar/Perry',''],
+  [45,'Johnny DuPree','D','S','Forrest',''],
+  [46,'Philman Ladner','R','S','Hancock/Harrison',''],
+  [47,'Mike Seymour','R','S','Harrison/Jackson/Stone',''],
+  [48,'Mike Thompson','R','S','Hancock/Harrison',''],
+  [49,'Joel Carter','R','S','Harrison',''],
+  [50,'Scott DeLano','R','S','Harrison',''],
+  [51,'Jeremy England','R','S','Jackson',''],
+  [52,'Brice Wiggins','R','S','Jackson','']
+];
+
 var OPENSTATES_KEY = '47b3a6a4-92a9-46a5-bf1c-cecda766fa12';
+var LETTER_SUBJECT = 'Making the case for a full-time Mississippi Legislature';
 var selectedRep = null;
 
-// ── Letter builder ───────────────────────────────────────────────────────────
-// NOTE: Uses fn/ln local vars, NOT bare fname/lname (which would be undefined)
-
+// ── Letter builder ────────────────────────────────────────────────────────────
 function buildLetter(repName) {
   var d  = getFormData();
   var fn        = d.fname || '[Your first name]';
   var ln        = d.lname || '[Your last name]';
   var city      = d.city  || 'Mississippi';
   var emailLine = d.email ? '\n' + d.email : '';
-
   return (
     'Dear ' + repName + ',\n\n' +
-
     'I am writing as a constituent who cares deeply about the quality of governance ' +
     'in Mississippi, and I want to share a case I believe deserves serious consideration: ' +
     'transitioning the Mississippi Legislature to a full-time, professional body.\n\n' +
-
     'I understand this is not a simple proposal. Mississippi has a proud tradition of ' +
     'the citizen legislature, and I respect that. But I believe the current structure is ' +
     'producing real and measurable costs for our state \u2014 and I\u2019d like to share why.\n\n' +
-
     '1. THE WORKLOAD IS ALREADY FULL-TIME IN PRACTICE\n\n' +
     'Research from the National Conference of State Legislatures consistently finds that ' +
     'legislators in part-time bodies report working far more hours than the official session ' +
     'implies. Between constituent services, interim committee work, administrative duties, ' +
     'and preparation, the job demands a full-time commitment regardless of classification. ' +
     'Currently, you and your colleagues are expected to perform full-time work for roughly ' +
-    '$10,000 a year in base salary \u2014 a structure that is neither fair to legislators nor ' +
+    '$23,500 a year in base salary \u2014 a structure that is neither fair to legislators nor ' +
     'conducive to attracting the best public servants.\n\n' +
-
     '2. LOW PAY DETERMINES WHO CAN AFFORD TO SERVE\n\n' +
-    'At $10,000 in annual base salary \u2014 unchanged in real terms for decades \u2014 ' +
-    'Mississippi\u2019s compensation structure screens out the very people who might bring fresh ' +
-    'perspectives to Jackson: hourly workers, young professionals, small-business owners ' +
-    'without flexible schedules, single parents, and anyone without independent wealth or ' +
-    'a forgiving employer. The Legislature today skews heavily toward retirees, attorneys, ' +
-    'and business owners. Raising pay and extending the session would widen the pool of ' +
-    'who can realistically serve.\n\n' +
-
+    'At $23,500 in annual base salary, Mississippi\u2019s compensation structure screens out ' +
+    'the very people who might bring fresh perspectives to Jackson: hourly workers, young ' +
+    'professionals, small-business owners without flexible schedules, single parents, and ' +
+    'anyone without independent wealth or a forgiving employer. The Legislature today skews ' +
+    'heavily toward retirees, attorneys, and business owners. Raising pay and extending the ' +
+    'session would widen the pool of who can realistically serve.\n\n' +
     '3. PART-TIME LEGISLATORS ARE MORE RELIANT ON LOBBYISTS\n\n' +
     'When legislators have limited time in session and little staff support, they rely more ' +
     'heavily on outside parties \u2014 often lobbyists representing well-resourced interests \u2014 ' +
@@ -274,30 +464,25 @@ function buildLetter(repName) {
     'greatest influence is not in changing floor votes but in shaping what gets on the agenda ' +
     'in the first place. A full-time legislature with more robust staff infrastructure reduces ' +
     'this information asymmetry.\n\n' +
-
     '4. MISSISSIPPI\u2019S POLICY CHALLENGES REQUIRE MORE LEGISLATIVE ATTENTION\n\n' +
     'Mississippi faces some of the most complex and pressing challenges of any state in the ' +
     'country \u2014 consistently near the bottom in health outcomes, educational attainment, ' +
     'per-capita income, and infrastructure quality. A 90-to-125-day part-time session is not ' +
     'sufficient time to address these challenges with the depth and rigor they demand.\n\n' +
-
     '5. UNCONTESTED SEATS ARE TIED TO PART-TIME STATUS\n\n' +
     'The sheer number of Mississippi legislative seats that go uncontested is in part a result ' +
     'of a compensation structure that makes running economically irrational for most working ' +
     'people. Moving toward full-time status would remove one of the largest practical barriers ' +
     'to candidacy, making our elections more competitive and more democratic.\n\n' +
-
     'I would welcome the opportunity to discuss this further. Thank you for your time and your ' +
     'service to our state.\n\n' +
-
     'Respectfully,\n' +
     fn + ' ' + ln + '\n' +
     city + ', Mississippi' + emailLine
   );
 }
 
-// ── Form helpers ─────────────────────────────────────────────────────────────
-
+// ── Form helpers ──────────────────────────────────────────────────────────────
 function getFormData() {
   return {
     fname:  (document.getElementById('fname').value  || '').trim(),
@@ -308,216 +493,189 @@ function getFormData() {
     email:  (document.getElementById('useremail').value || '').trim()
   };
 }
-
 function updatePreview() {
   var repName = selectedRep ? selectedRep.displayName : '[Legislator name]';
   document.getElementById('letter-preview').textContent = buildLetter(repName);
 }
-
 function onInfoChange() {
   updatePreview();
   var d = getFormData();
-  if (d.fname && d.lname && d.street && d.city && d.zip) {
-    document.getElementById('num1').classList.add('done');
-  }
+  if (d.fname && d.lname && d.street && d.city && d.zip) document.getElementById('num1').classList.add('done');
 }
-
 function showStatus(id, type, msg) {
-  var icons = { error: '\u26A0', info: '\u2139', success: '\u2713' };
+  var icons = { error:'\u26A0', info:'\u2139', success:'\u2713' };
   var el = document.getElementById(id);
-  if (!el) return;
-  el.innerHTML = '<div class="status-msg status-' + type + '">' + (icons[type] || '') + ' ' + msg + '</div>';
+  if (el) el.innerHTML = '<div class="status-msg status-' + type + '">' + (icons[type]||'') + ' ' + msg + '</div>';
 }
+function clearStatus(id) { var el=document.getElementById(id); if(el) el.innerHTML=''; }
 
-function clearStatus(id) {
-  var el = document.getElementById(id);
-  if (el) el.innerHTML = '';
-}
-
-// ── Rep lookup ───────────────────────────────────────────────────────────────
-//
-// Pipeline:
-//   1. US Census Geocoder  — free, no API key, CORS-open
-//   2. Open States v3 /people.geo — apikey in QUERY STRING (required for browser CORS)
-//   3. Filter to MS state House / Senate only
-//
-// Why not Nominatim? Browsers cannot set a custom User-Agent header,
-// which Nominatim requires — requests either fail or get rejected.
-//
-// Why not Google Civic API? The demo key has unreliable rate limits
-// and the API has become inconsistent for state-level reps.
-
+// ── 3-tier rep lookup ─────────────────────────────────────────────────────────
+// Tier 1: Census geocoder → Open States → match against hardcoded DB
+// Tier 2: Open States alone (if Census fails)
+// Tier 3: Show name-search UI over hardcoded DB
 async function findReps() {
   var d = getFormData();
   if (!d.street || !d.city || !d.zip) {
     showStatus('rep-status', 'error', 'Please fill in your street address, city, and ZIP code first.');
     return;
   }
-
-  showStatus('rep-status', 'info', 'Step 1 of 2: Geocoding your address\u2026');
+  showStatus('rep-status', 'info', 'Looking up your address\u2026');
   document.getElementById('rep-list').innerHTML = '';
 
+  var lat = null, lng = null;
+
+  // ── Tier 1a: Census geocoder ──────────────────────────────────────────────
   try {
-    // 1. Census geocoder — try with city first, then zip-only fallback
-    var lat, lng;
-    var censusBase = 'https://geocoding.geo.census.gov/geocoder/locations/address?benchmark=2020&format=json';
-
-    var url1 = censusBase
-      + '&street=' + encodeURIComponent(d.street)
-      + '&city='   + encodeURIComponent(d.city)
-      + '&state=MS'
-      + '&zip='    + encodeURIComponent(d.zip);
-
-    var r1 = await fetch(url1);
-    if (!r1.ok) throw new Error('Census API error ' + r1.status);
-    var j1 = await r1.json();
-    var matches = (j1.result && j1.result.addressMatches) || [];
-
-    if (matches.length === 0) {
-      // Fallback: street + zip only (skips city, handles misspellings)
-      var url2 = censusBase
-        + '&street=' + encodeURIComponent(d.street)
-        + '&zip='    + encodeURIComponent(d.zip);
-      var r2 = await fetch(url2);
-      var j2 = await r2.json();
-      matches = (j2.result && j2.result.addressMatches) || [];
+    var base = 'https://geocoding.geo.census.gov/geocoder/locations/address?benchmark=2020&format=json';
+    var u1 = base + '&street=' + encodeURIComponent(d.street) + '&city=' + encodeURIComponent(d.city) + '&state=MS&zip=' + encodeURIComponent(d.zip);
+    var r1 = await fetch(u1);
+    if (r1.ok) {
+      var j1 = await r1.json();
+      var m1 = (j1.result && j1.result.addressMatches) || [];
+      if (m1.length === 0) {
+        // zip-only retry
+        var u2 = base + '&street=' + encodeURIComponent(d.street) + '&zip=' + encodeURIComponent(d.zip);
+        var r2 = await fetch(u2);
+        if (r2.ok) { var j2 = await r2.json(); m1 = (j2.result && j2.result.addressMatches) || []; }
+      }
+      if (m1.length > 0) { lat = m1[0].coordinates.y; lng = m1[0].coordinates.x; }
     }
+  } catch(e) { /* census failed — try Open States directly */ }
 
-    if (matches.length === 0) {
-      showStatus('rep-status', 'error',
-        'Could not find that address. Double-check your street address and ZIP, or use manual entry below.');
-      showFallback();
-      return;
-    }
-
-    lat = matches[0].coordinates.y;
-    lng = matches[0].coordinates.x;
-
-    showStatus('rep-status', 'info', 'Step 2 of 2: Looking up your Mississippi legislators\u2026');
-
-    // 2. Open States — apikey MUST be in query string for browser CORS to work
-    var osUrl = 'https://v3.openstates.org/people.geo'
-      + '?lat='    + lat
-      + '&lng='    + lng
-      + '&apikey=' + OPENSTATES_KEY;
-
-    var osResp = await fetch(osUrl, { headers: { 'Accept': 'application/json' } });
-
-    if (osResp.status === 401 || osResp.status === 403) {
-      throw new Error('Open States API key rejected (status ' + osResp.status + ')');
-    }
-    if (!osResp.ok) {
-      throw new Error('Open States returned ' + osResp.status);
-    }
-
-    var osData = await osResp.json();
-    var people = osData.results || [];
-
-    // 3. Filter to MS state house + senate only
-    var msReps = people.filter(function(p) {
-      if (!p.current_role) return false;
-      var org = p.current_role.org_classification;
-      return org === 'lower' || org === 'upper';
-    });
-
-    if (msReps.length === 0) {
-      showStatus('rep-status', 'info',
-        'No Mississippi state legislators were returned for that coordinate. ' +
-        'Try the manual entry below or the directories in Step 4.');
-      showFallback();
-      return;
-    }
-
-    clearStatus('rep-status');
-    showStatus('rep-status', 'success',
-      'Found ' + msReps.length + ' Mississippi legislator(s) for your address. Click one to select.');
-    renderReps(msReps);
-
-  } catch (err) {
-    console.error('findReps:', err);
-    showStatus('rep-status', 'error',
-      'Lookup failed: ' + err.message + '. Use manual entry below or the directories in Step 4.');
-    showFallback();
+  // ── Tier 1b: Open States people.geo ──────────────────────────────────────
+  if (lat !== null) {
+    try {
+      showStatus('rep-status', 'info', 'Finding your legislators\u2026');
+      var osUrl = 'https://v3.openstates.org/people.geo?lat=' + lat + '&lng=' + lng + '&apikey=' + OPENSTATES_KEY;
+      var osResp = await fetch(osUrl, { headers: { 'Accept': 'application/json' } });
+      if (osResp.ok) {
+        var osData = await osResp.json();
+        var people = (osData.results || []).filter(function(p) {
+          return p.current_role && (p.current_role.org_classification === 'lower' || p.current_role.org_classification === 'upper');
+        });
+        if (people.length > 0) {
+          // Match API results against our hardcoded DB for enrichment
+          var matched = people.map(function(p) {
+            var chamber = p.current_role.org_classification === 'lower' ? 'H' : 'S';
+            var dist = parseInt(p.current_role.district, 10);
+            var dbEntry = MS_MEMBERS.find(function(m) { return m[3] === chamber && m[0] === dist; });
+            var email = p.email || '';
+            if (!email && Array.isArray(p.contact_details)) {
+              var ec = p.contact_details.find(function(c) { return c.type === 'email'; });
+              if (ec) email = ec.value;
+            }
+            return {
+              displayName: dbEntry ? dbEntry[1] : p.name,
+              party: dbEntry ? dbEntry[2] : (p.party || ''),
+              chamber: chamber,
+              district: dist,
+              residence: dbEntry ? dbEntry[4] : '',
+              email: email
+            };
+          });
+          clearStatus('rep-status');
+          showStatus('rep-status', 'success', 'Found ' + matched.length + ' Mississippi legislator(s) for your address. Click one to select.');
+          renderReps(matched);
+          return;
+        }
+      }
+    } catch(e) { /* fall through to Tier 3 */ }
   }
+
+  // ── Tier 2: ZIP-based match from hardcoded DB ─────────────────────────────
+  // Not 100% accurate (ZIPs cross district lines) but beats nothing
+  // We skip this and go straight to the name-search UI which is more reliable
+
+  // ── Tier 3: Name-search UI ────────────────────────────────────────────────
+  showStatus('rep-status', 'info',
+    'Couldn\u2019t automatically find your legislators (the API may be temporarily unavailable). ' +
+    'Use the name or city search below, or enter your legislator manually.');
+  showSearchSection();
 }
 
+// ── Render API results ────────────────────────────────────────────────────────
 function renderReps(reps) {
   var list = document.getElementById('rep-list');
   list.innerHTML = '';
-
   reps.forEach(function(rep, i) {
-    var name     = rep.name || 'Unknown';
-    var initials = name.split(' ').map(function(w) { return w[0] || ''; }).join('').slice(0, 2).toUpperCase();
-    var party    = rep.party || '';
-    var isR      = party.toLowerCase().indexOf('republican') !== -1;
-    var isD      = party.toLowerCase().indexOf('democrat')   !== -1;
-    var partyLabel = isR ? 'Republican' : isD ? 'Democrat' : party;
-    var partyClass = isR ? 'party-R'    : isD ? 'party-D'  : '';
-
-    var role     = rep.current_role || {};
-    var chamber  = role.org_classification === 'lower' ? 'State House' : 'State Senate';
-    var district = role.district ? ' \u00B7 District ' + role.district : '';
-    var office   = 'Mississippi ' + chamber + district;
-
-    // Email: try top-level field first, then contact_details array
-    var email = rep.email || '';
-    if (!email && Array.isArray(rep.contact_details)) {
-      var ec = rep.contact_details.find(function(c) {
-        return c.type === 'email' || (c.note && c.note.toLowerCase().indexOf('email') !== -1);
-      });
-      if (ec) email = ec.value;
-    }
-
-    var metaParts = [office];
-    if (partyLabel) metaParts.push('<span class="' + partyClass + '">' + partyLabel + '</span>');
-    metaParts.push(email ? email : '<em>Email: see directory in Step 4</em>');
+    var initials = rep.displayName.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+    var chamberLabel = rep.chamber === 'H' ? 'State House' : 'State Senate';
+    var partyClass = rep.party === 'R' ? 'party-R' : rep.party === 'D' ? 'party-D' : 'party-I';
+    var partyLabel = rep.party === 'R' ? 'Republican' : rep.party === 'D' ? 'Democrat' : 'Independent';
+    var meta = 'MS ' + chamberLabel + ' \u00B7 District ' + rep.district;
+    if (partyLabel) meta += ' \u00B7 <span class="' + partyClass + '">' + partyLabel + '</span>';
+    if (rep.email) meta += ' \u00B7 ' + rep.email;
+    else meta += ' \u00B7 <em>Email: see directory in Step 4</em>';
 
     var card = document.createElement('div');
     card.className = 'rep-card';
-    card.setAttribute('role', 'button');
-    card.setAttribute('tabindex', '0');
+    card.setAttribute('role','button'); card.setAttribute('tabindex','0');
     card.id = 'rep-card-' + i;
-    card.innerHTML =
-      '<div class="rep-avatar">' + initials + '</div>' +
-      '<div class="rep-info">' +
-        '<div class="rep-name">' + name + '</div>' +
-        '<div class="rep-meta">' + metaParts.join(' \u00B7 ') + '</div>' +
-      '</div>' +
-      '<div class="check-ring">\u2713</div>';
-
-    (function(r, e, idx) {
-      card.addEventListener('click',   function()  { selectRep(r, e, idx); });
-      card.addEventListener('keydown', function(ev) {
-        if (ev.key === 'Enter' || ev.key === ' ') selectRep(r, e, idx);
-      });
-    })(rep, email, i);
-
+    card.innerHTML = '<div class="rep-avatar">'+initials+'</div><div class="rep-info"><div class="rep-name">'+rep.displayName+'</div><div class="rep-meta">'+meta+'</div></div><div class="check-ring">\u2713</div>';
+    (function(r,idx){ card.addEventListener('click',function(){selectRepObj(r,idx);}); card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')selectRepObj(r,idx);}); })(rep,i);
     list.appendChild(card);
   });
+  // Also show name-search as an additional option
+  showSearchSection();
 }
 
-function selectRep(rep, email, idx) {
-  selectedRep = { displayName: rep.name, email: email || '' };
-  document.querySelectorAll('.rep-card').forEach(function(c) { c.classList.remove('selected'); });
+function selectRepObj(rep, idx) {
+  selectedRep = { displayName: rep.displayName, email: rep.email || '' };
+  document.querySelectorAll('.rep-card').forEach(function(c){c.classList.remove('selected');});
   var card = document.getElementById('rep-card-' + idx);
   if (card) card.classList.add('selected');
   document.getElementById('num2').classList.add('done');
   updatePreview();
-  document.querySelector('.step:nth-child(3)').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelector('.step:nth-child(3)').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
-// ── Manual fallback ──────────────────────────────────────────────────────────
-
-function showFallback() {
-  document.getElementById('manual-section').style.display = 'block';
-  document.getElementById('manual-toggle-btn').style.display = 'none';
+// ── Name/city search over hardcoded DB ────────────────────────────────────────
+function showSearchSection() {
+  document.getElementById('search-section').style.display = 'block';
+  document.getElementById('search-toggle-btn').style.display = 'none';
 }
-
+function toggleSearch() {
+  var s = document.getElementById('search-section');
+  s.style.display = s.style.display === 'none' ? 'block' : 'none';
+}
 function toggleManual() {
-  var ms = document.getElementById('manual-section');
-  ms.style.display = (ms.style.display === 'none') ? 'block' : 'none';
+  var s = document.getElementById('manual-section');
+  s.style.display = s.style.display === 'none' ? 'block' : 'none';
 }
 
+function onSearchInput() {
+  var q = (document.getElementById('name-search').value || '').toLowerCase().trim();
+  var box = document.getElementById('search-results');
+  if (q.length < 2) { box.style.display = 'none'; return; }
+  var hits = MS_MEMBERS.filter(function(m) {
+    return m[1].toLowerCase().indexOf(q) !== -1 || m[4].toLowerCase().indexOf(q) !== -1;
+  }).slice(0, 12);
+  if (hits.length === 0) { box.innerHTML = '<div class="search-result-item"><span class="sri-name">No results found</span></div>'; box.style.display='block'; return; }
+  box.innerHTML = '';
+  hits.forEach(function(m) {
+    var chamberLabel = m[3] === 'H' ? 'House' : 'Senate';
+    var partyClass = m[2] === 'R' ? 'party-R' : m[2] === 'D' ? 'party-D' : 'party-I';
+    var item = document.createElement('div');
+    item.className = 'search-result-item';
+    item.innerHTML = '<div><div class="sri-name">'+m[1]+'</div><div class="sri-meta">'+chamberLabel+' District '+m[0]+' \u00B7 '+m[4]+'</div></div><span class="'+partyClass+'">'+m[2]+'</span>';
+    (function(member){ item.addEventListener('click', function(){ selectFromDB(member); }); })(m);
+    box.appendChild(item);
+  });
+  box.style.display = 'block';
+}
+
+function selectFromDB(m) {
+  var chamberLabel = m[3] === 'H' ? 'State House Representative' : 'State Senator';
+  selectedRep = { displayName: chamberLabel + ' ' + m[1], email: m[5] || '' };
+  document.getElementById('name-search').value = m[1];
+  document.getElementById('search-results').style.display = 'none';
+  document.getElementById('num2').classList.add('done');
+  updatePreview();
+  showStatus('rep-status', 'success', 'Selected: ' + selectedRep.displayName + ' (District ' + m[0] + ')');
+  document.querySelector('.step:nth-child(3)').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+// ── Manual entry ──────────────────────────────────────────────────────────────
 function useManual() {
   var name  = (document.getElementById('manual-name').value  || '').trim();
   var email = (document.getElementById('manual-email').value || '').trim();
@@ -527,70 +685,37 @@ function useManual() {
   document.getElementById('num2').classList.add('done');
   updatePreview();
   showStatus('rep-status', 'success', 'Selected: ' + selectedRep.displayName);
-  document.querySelector('.step:nth-child(3)').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelector('.step:nth-child(3)').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
-// ── Email / copy ─────────────────────────────────────────────────────────────
-
+// ── Email / copy ──────────────────────────────────────────────────────────────
 function sendEmail() {
   var repName = selectedRep ? selectedRep.displayName : '[Legislator]';
   var body    = buildLetter(repName);
   var toEmail = (selectedRep && selectedRep.email) ? selectedRep.email : '';
-  var mailto  = 'mailto:' + encodeURIComponent(toEmail)
-    + '?subject=' + encodeURIComponent(LETTER_SUBJECT)
-    + '&body='    + encodeURIComponent(body);
-
+  var mailto  = 'mailto:' + encodeURIComponent(toEmail) + '?subject=' + encodeURIComponent(LETTER_SUBJECT) + '&body=' + encodeURIComponent(body);
   if (mailto.length > 7800) {
     copyLetter();
-    showStatus('send-status', 'info',
-      'The letter is too long for some email clients\u2019 mailto links. ' +
-      'It\u2019s been copied to your clipboard \u2014 paste it into a new email' +
-      (toEmail ? ' to ' + toEmail : '') + '.');
-    return;
+    showStatus('send-status','info','Letter copied to clipboard \u2014 paste it into a new email'+(toEmail?' to '+toEmail:'')+'.'); return;
   }
-
   window.location.href = mailto;
-
-  if (!toEmail) {
-    showStatus('send-status', 'info',
-      'No email address found for this legislator. Find it in Step 4, then paste the letter there. ' +
-      'Use the Copy button to grab the full text.');
-  } else {
-    showStatus('send-status', 'success',
-      'Your email client should open now. If it didn\u2019t, use \u201CCopy letter text\u201D and email ' + toEmail + ' manually.');
-  }
+  if (!toEmail) showStatus('send-status','info','No email on file. Find it in Step 4, then paste the letter. Use the Copy button to grab the text.');
+  else showStatus('send-status','success','Your email client should open now. If it didn\u2019t, use \u201CCopy letter text\u201D and send to '+toEmail+' manually.');
 }
-
 function copyLetter() {
-  var repName = selectedRep ? selectedRep.displayName : '[Legislator]';
-  var body = buildLetter(repName);
+  var body = buildLetter(selectedRep ? selectedRep.displayName : '[Legislator]');
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(body)
-      .then(function() { showStatus('send-status', 'success', 'Letter copied to clipboard.'); })
-      .catch(function() { legacyCopy(body); });
-  } else {
-    legacyCopy(body);
-  }
+    navigator.clipboard.writeText(body).then(function(){showStatus('send-status','success','Letter copied to clipboard.');}).catch(function(){legacyCopy(body);});
+  } else { legacyCopy(body); }
 }
-
 function legacyCopy(text) {
-  var ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0;';
-  document.body.appendChild(ta);
-  ta.focus(); ta.select();
-  try {
-    document.execCommand('copy');
-    showStatus('send-status', 'success', 'Letter copied to clipboard.');
-  } catch(e) {
-    showStatus('send-status', 'error', 'Auto-copy failed. Select the preview text above and copy it manually (Ctrl+A, Ctrl+C).');
-  }
+  var ta = document.createElement('textarea'); ta.value = text; ta.style.cssText='position:fixed;opacity:0;top:0;left:0;'; document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); showStatus('send-status','success','Letter copied to clipboard.'); } catch(e) { showStatus('send-status','error','Auto-copy failed. Select the preview text above and copy manually (Ctrl+A, Ctrl+C).'); }
   document.body.removeChild(ta);
 }
 
-// ── Init ─────────────────────────────────────────────────────────────────────
+// ── Init ──────────────────────────────────────────────────────────────────────
 updatePreview();
 </script>
-
 </body>
 </html>
